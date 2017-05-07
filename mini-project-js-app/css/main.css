@@ -11411,3 +11411,23 @@ h1.epic {
 /* @end */
 
 /*# sourceMappingURL=style.css.map */
+
+.loading img {
+  display: inline-block;
+}
+.loading {
+  text-align: center;
+}
+.loading.inactive {
+  display: none;
+}
+.loading.active {
+  display: block;
+}
+
+#froala-preview-container.no-margin-top {
+  margin-top: 70px;
+}
+button#save {
+  margin-top: 20px;
+}

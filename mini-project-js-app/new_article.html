@@ -7,6 +7,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Include external CSS. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+
+    <!-- Include Editor style. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+
     <link href="css/main.css" rel="stylesheet">
   </head>
   <body>
@@ -78,9 +86,9 @@
 			</li>
 
 
-		<li class="add pull-right">
-			<a class="js" id="add" href="new_article.html"><i class="icon icon-add"></i></a>
-		</li>
+      <li class="add pull-right">
+  			<a class="js" id="add" href="new_article.html"><i class="icon icon-add"></i></a>
+  		</li>
 
 
 	</ul>
@@ -88,15 +96,24 @@
 
     <!-- End Copied Nav -->
 
+    <!-- Begin Create Article Form -->
 
-    <!-- Begin Copied Content -->
-    <div class="ajax-post post ajax">
+      <form id="article-form">
+        <label>Category: <select id="category-select" name="category"></select></label>
+        <label>Header Image: <input id="image-link" type="text" name="image"></label>
+        <label>Tags: <input id="tags" type="text" name="tags"></label>
+      </form>
+
+    <!-- End Create Article Form -->
+
+    <!-- Begin Create Article Preview -->
+    <div class="ajax-post post ajax no-margin-top" id="froala-preview-container">
       <div class="post-header-full">
         <div>
           <div class="container-fluid relative">
             <section class="section header-title">
               <a class="post-category"></a>
-              <h1></h1>
+              <h1 id="editable-title">Example Title. Write your actual title here.</h1>
             </section>
           </div>
         </div>
@@ -106,25 +123,37 @@
           <div class="table">
             <div class="col-left">
               <div class="post-content module">
-                <div class="description">
+                <div class="synopsis module">
+                  <h5>In Brief</h5>
+                  <div class="description" id="editable-description">
+                    Parley hang the jib hands Privateer clap of thunder starboard blow the man down shrouds pirate code of conduct. Stern brig Jack Ketch Yellow Jack marooned Plate Fleet fire in the hole cackle fruit grapple cog. Sea Legs cable lanyard draught barkadeer yard nipperkin walk the plank code of conduct Jolly Roger.
+                  </div>
                 </div>
                 <div class="content">
+                  <div id="froala-preview" class="fr-view">
+                  </div>
+                  <textarea id="froala-editor" name="content"></textarea>
+                  <button id="save" class="btn btn-primary">Save</button>
                 </div>
               </div>
             </div>
             <div id="sidebar" class="hidden-sm hidden-xs">
               <div class="module tags">
               </div>
-            </div>
           </div>
         </section>
       </div>
     </div>
-    <!-- End Copied Content -->
-    <div class="clearfix"></div>
-    <div class="loading inactive">
-      <img src="images/loader.gif" alt="loading" id="loader-gif">
-    </div>
+
+    <!-- End Create Article Preview -->
   </body>
-  <script src="index.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+
+    <!-- Include Editor JS files. -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0/js/froala_editor.pkgd.min.js"></script>
+
+    <!-- Initialize the editor. -->
+
+    <script src="new.js"></script>
 </html>
